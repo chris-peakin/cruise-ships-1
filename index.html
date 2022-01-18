@@ -10,12 +10,19 @@
 </head>
 <body>
     <div id="viewport">
-
-
+        <div id="ports"></div>
     </div>
     <script src="src/controller.js"></script>
+    <script src="src/Port.js"></script>
+    <script src="src/Itinerary.js"></script>
     <script>
         const controller = new Controller();
+        const itinerary = new Itinerary([
+            new Port('Sunderland'),
+            new Port('Seaham'),
+            new Port('Hartlepool'),
+            new Port('Redcar')
+        ]);
     </script>
 </body>
 </html>
