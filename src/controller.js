@@ -1,6 +1,15 @@
 (function exportController() {
-    function Controller(){
+    function Controller(ship){
+        this.ship = ship;
         this.initialiseSea();
+
+        document.querySelector('#sailbutton').addEventListener('click', () => {
+            this.setSail();
+        });
+    };
+
+    Controller.prototype = {
+        setSail() {}
     }
 
     Controller.prototype.initialiseSea = function initialiseSea(){
@@ -30,7 +39,8 @@
         })
     }
 
-    Controller.prototype.renderShip = function renderShip(ship){
+    Controller.prototype.renderShip = function renderShip(){
+        const ship = this.ship;
         const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
         const portElement = document.querySelector(`[data-port-index='${shipPortIndex}']`);
         const shipElement = document.querySelector('#ship');
