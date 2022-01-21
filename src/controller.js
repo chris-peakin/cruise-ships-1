@@ -14,8 +14,26 @@
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const nextPortIndex = currentPortIndex + 1;
             const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
-        }
-    }
+
+            const shipElement = document.querySelector('#ship');
+            const sailInterval = setInterval(() => {
+                const shipLeft = parseInt(ship.shipElement.style.left, 10);
+                if (shipLeft === (nextPortElement.offsetLeft - 32)) {
+                    ship.setSail();
+                    ship.dock();
+                    clearInterval(sailInterval);
+                }
+
+                shipElement.style.left = `${shipLeft + 1}px`;
+            }, 20);
+
+            const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
+
+            if (!nextPortElement){
+                return alert('End of the line!');
+            };
+        };
+    };
 
     Controller.prototype.initialiseSea = function initialiseSea(){
         const backgrounds = [
