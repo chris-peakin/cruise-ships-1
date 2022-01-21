@@ -9,7 +9,12 @@
     };
 
     Controller.prototype = {
-        setSail() {}
+        setSail() {
+            const ship = this.ship;
+            const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const nextPortIndex = currentPortIndex + 1;
+            const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
+        }
     }
 
     Controller.prototype.initialiseSea = function initialiseSea(){
