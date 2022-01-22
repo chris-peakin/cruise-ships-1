@@ -8,8 +8,7 @@
         });
     };
 
-    Controller.prototype = {
-        setSail() {
+    /*Controller.prototype.setSail = function setSail() {
             const ship = this.ship;
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const nextPortIndex = currentPortIndex + 1;
@@ -32,8 +31,7 @@
             if (!nextPortElement){
                 return alert('End of the line!');
             };
-        };
-    };
+        };*/
 
     Controller.prototype.initialiseSea = function initialiseSea(){
         const backgrounds = [
